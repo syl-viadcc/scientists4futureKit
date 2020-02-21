@@ -50,7 +50,7 @@ class Plugin extends PluginBase
             $vars['iv']=$iv;
             $vars['cipher']=StbCrypto::crypt($data, 'e', $iv);
             Mail::send('stb.letter::mail.backup-notification', $vars, function($message) use ($vars){
-                $message->to('scientists4future@protonmail.ch', 'Backup S4F');
+                $message->to('place_here_your_email_for_backup', 'Backup S4F');
                 $message->subject('Backup S4F::IV::'.$vars['iv']);
                 $message->attachData($vars['cipher'], 'assinantes-backup-'.date("Y-m-d_H-i-s" ).'.json');
             });
