@@ -8,14 +8,14 @@ The working installation of the website is here: [Scientis4Future](https://scien
 ## Enviroment preparation. 
 ### Minimum system requirementsRequirements
  
-MYSQL: 5.7 ou 8
-PHP version 7.0.8 or higher
-PDO PHP Extension
-cURL PHP Extension
-OpenSSL PHP Extension
-Mbstring PHP Library
-ZipArchive PHP Library
-GD PHP Library
+- MYSQL: 5.7 ou 8
+- PHP version 7.0.8 or higher
+- PDO PHP Extension
+- cURL PHP Extension
+- OpenSSL PHP Extension
+- Mbstring PHP Library
+- ZipArchive PHP Library
+- GD PHP Library
 
 ### How to install 
 
