@@ -1,0 +1,21 @@
+description = "Listing of headlines categories as badges"
+
+[viewBag]
+==
+{% if post.prev or post.next%}
+<div class="headline-navigation">
+    <div class="row small">
+        <div class="6u navigation align-left">
+            {% if post.prev %}
+            <a href="{{ post.prev.slug }}" ><b><< {{'Healine Anterior'|_}}</b>&nbsp;<span>{{ post.prev.title }}</span></a>&nbsp;
+            {% endif %}
+        </div>
+
+        <div class="6u navigation align-right">
+            {% if post.next %}
+            <a href="{{ post.next.slug }}"><b>{{'Próximo Healine'|_}} >></b><br><span>{{ post.next.title }}</span></a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}

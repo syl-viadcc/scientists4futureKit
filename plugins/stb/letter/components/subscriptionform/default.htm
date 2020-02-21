@@ -1,0 +1,241 @@
+
+
+<style>
+    .text-muted {
+        color: #6c757d!important;
+        line-height: 0.5em;
+
+    }
+    #assinaCarta_form .form-group{
+        margin-top: 0.7rem;
+    }
+    #subscriptionForm_form .form-group{
+        margin: 1.5em 0;
+    }
+</style>
+
+{% partial 'site/flashMessage'%}
+{%if not subscriptionForm.settings.form_enabled %}
+    <h4 style="color: red;">{{'O formulario ainda está inativo!'|_}}</h4>
+{% endif %}
+<div class="small code">
+    <span class="tooltip" title="{{'Todo os campos são obrigatórios'|_}}">{{'Todo os campos são obrigatórios.'|_}}</span><br>
+    <span class="tooltip" title="{{'Informação pública'|_}}" style="color: green;"><i class="fa fa-unlock-alt" aria-hidden="true"></i>&nbsp;{{'Informação pública'|_}}</span><br>
+    <span class="tooltip" title="{{'Informação privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;{{'Informação privada'|_}}</span>
+</div>
+{{ form_open({ request: 'subscriptionForm::onFormSubmit', id:'subscriptionForm_form'}) }}
+
+    {{ form_token() }}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+
+    <div class="form-group">
+        <label for="name">{{'Nome'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;<span class="tooltip" title="Entrada pública" style="color: green;"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+        </label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="{{'Nome'|_}}" required>
+        <small id="nameHelp" class="form-text text-muted">{{'Nome Help Message'|_}}</small>
+    </div>
+    <div class="form-group">
+        <label for="name">{{'Highest Academic Degree'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;<span class="tooltip" title="Entrada pública" style="color: green;"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+        </label>
+        <select id="highest_degree" name="highest_degree"
+                class="form-control" title="{{'Highest Academic Degree'|_}}"
+                required>
+            <option value="">{{'Selecione o seu grau académico mais elevado'|_}}</option>
+            <option value="licenciatura">Licenciatura</option>
+            <option value="mestrado">Mestrado</option>
+            <option value="doutoramento">Doutoramento</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="name">{{'Categoria Profissional'|_}}
+            &nbsp;<span class="tooltip" title="Entrada pública" style="color: green;"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+        </label>
+        <select id="rank_id" name="rank_id"
+                class="form-control" title="{{'Categoria Profissional'|_}}"
+                required>
+            <option value="">{{'Selecione categoria profissional'|_}}</option>
+            {% for id, rank in __SELF__.settings.ranks %}
+            <option value="{{id}}">{{rank}}</option>
+            {% endfor %}
+        </select>
+        <small id="rank_iddHelp" class="form-text text-muted">{{'Categoria Help Message'|_}}</small>
+    </div>
+
+    <div class="form-group">
+        <label for="institution">{{'Instituição(ões) a que está afiliado (por extenso)'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;<span class="tooltip" title="Entrada pública" style="color: green;"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+        </label>
+        <input type="text" id="institution" name="institution" class="form-control" placeholder="" required>
+
+        <small id="institution-otherHelp" class="form-text text-muted">{{'Instituição Help Message'|_}}</small>
+    </div>
+    <div class="form-group">
+        <label for="name">{{'#BI'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;&nbsp;<span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </label>
+        <input type="text" id="bi_number" name="bi_number" class="form-control" placeholder="{{'#BI'|_}}" required>
+        <small id="bi_numberHelp" class="form-text text-muted">{{'#BI Help Message'|_}}</small>
+    </div>
+    <div class="form-group">
+        <label for="name">{{'ORCID ID'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;<span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+            &nbsp;<span id="orcididError"  style="color: red;"></span>
+        </label>
+        <input type="text" name="orcid_id" id="orcidid" placeholder="0000-0001-2345-6789" required>
+        <small id="orcididHelp" class="form-text text-muted">{{'Orcid Help Message'|_}}</small>
+    </div>
+
+    <div class="form-group">
+        <label for="name">{{'Email'|_}}
+            &nbsp;<!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            &nbsp;<span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+            &nbsp;<span id="emailError"  style="color: red;"></span>
+        </label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="{{'Email'|_}}" required>
+        <small id="emailHelp" class="form-text text-muted">{{'Email Help Message'|_}}</small>
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label>{{'Já assinou previamente esta carta internacional?'|_}}-->
+<!--            &nbsp; <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+<!--            &nbsp;<span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>-->
+<!--        </label>-->
+<!--        <div class="text-muted mt-1 align-justify">{% content 'form_radio_1'%}</div>-->
+<!--        <input class="form-check-input" type="radio" name="jaAssinouOptions" id="jaAssinousim" value="sim" >-->
+<!--        <label class="form-check-label" for="jaAssinousim">{{'Sim'|_}}</label>-->
+
+<!--        <input class="form-check-input" type="radio" name="jaAssinouOptions" id="jaAssinounao" value="nāo" checked>-->
+<!--        <label class="form-check-label" for="jaAssinounao">{{'Nāo'|_}}</label>-->
+
+<!--    </div>-->
+
+    <div class="form-group">
+        <label>{{'Quer aderir ao Scientists for Future Portugal (será inscrito na nossa mailing-list)?'|_}}
+            <!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            <span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </label>
+        <div class="text-muted mt-1 align-justify">{% content 'form_radio_1'%}</div>
+        <input class="form-check-input" type="radio" name="participarOptions" id="participarsim" value="sim">
+        <label class="form-check-label" for="participarsim">{{'Sim'|_}}</label>
+
+        <input class="form-check-input" type="radio" name="participarOptions" id="participarnao" value="nāo" checked>
+        <label class="form-check-label" for="participarnao">{{'Nāo'|_}}</label>
+    </div>
+
+    <div class="form-group">
+        <label>{{'Disponibiliza-se para participar em acções de apoio ao movimento Greve Climática Estudantil em representação da Scientists for Future?'|_}}
+            <!-- <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+            <span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>
+        </label>
+        <div class="text-muted mt-1 align-justify">{% content 'form_radio_2'%}</div>
+        <input class="form-check-input" type="radio" name="apoioOptions" id="apoiosim" value="sim">
+        <label class="form-check-label" for="apoiosim">{{'Sim'|_}}</label>
+
+        <input class="form-check-input" type="radio" name="apoioOptions" id="apoionao" value="nāo" checked>
+        <label class="form-check-label" for="apoionao">{{'Nāo'|_}}</label>
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label>{{'Inscrição em mailing list para envio de informação sobre as acções da Scientists For Future?'|_}}-->
+<!--             <span class="tooltip" title="{{'Campo obrigatório'|_}}" style="color: red;">*</span> -->
+<!--            <span class="tooltip" title="{{'Entrada privada'|_}}" style="color: red;"><i class="fa fa-lock" aria-hidden="true"></i></span>-->
+<!--        </label>-->
+<!--        <div class="text-muted mt-1 align-justify">{% content 'form_radio_4'%}</div>-->
+<!--        <input class="form-check-input" type="radio" name="mailingOptions" id="mailingsim" value="sim">-->
+<!--        <label class="form-check-label" for="mailingsim">{{'Sim'|_}}</label>-->
+
+<!--        <input class="form-check-input" type="radio" name="mailingOptions" id="mailingnao" value="nāo" checked>-->
+<!--        <label class="form-check-label" for="mailingnao">{{'Nāo'|_}}</label>-->
+<!--    </div>-->
+
+
+    <div class="form-group">
+        <hr>
+        {% content 'form_disclaimer'%}
+        <hr>
+        <b>{{'Política de Proteção de Dados Pessoais'|_}}</b>
+        <div class="align-justify">{% content 'form_gdpr' %}</div>
+    </div>
+
+    <div class="row">
+        <div class="8u -2u">
+            {% if subscriptionForm.settings.recaptcha_enabled and subscriptionForm.settings.form_enabled %}
+            <script src="https://www.google.com/recaptcha/api.js?render={{subscriptionForm.settings.site_key}}"></script>
+            <script>
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{subscriptionForm.settings.site_key}}', {action: 'homepage'}).then(function(token) {
+                        if(token !== undefined){
+                            $.request('subscriptionForm::onCaptchaValidate', {
+                                data: { token: token},
+                                success: function(data){
+                                    $("#letterSubmitButton").removeAttr('disabled');
+                                    console.log("reCAPTCHA Success."+" Chellange TS:"+data['challenge_ts']+ " Score: "+ data['score']);
+                                },
+                                error: function (data) {
+                                    console.log("reCAPTCHA Error.");
+                                    $("#recaptchaError").text(data.responseJSON['error-messages']);
+                                }
+                            });
+                        }
+                    });
+                });
+            </script>
+            <span id="recaptchaError"  style="color: red;"></span>
+            {% endif %}
+            {%if not subscriptionForm.settings.form_enabled %}
+            <h4 style="color: red;">{{'O formulario ainda está inativo!'|_}}</h4>
+            {% endif %}
+        </div>
+        <div class="2u">
+            <div class="form-group">
+                <button id="letterSubmitButton" type="submit" class="button" {% if subscriptionForm.settings.recaptcha_enabled or not subscriptionForm.settings.form_enabled %} disabled{% endif %}>
+                    {{'Assina a Carta'|_}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+{{ form_close() }}
+
+
+{% put scripts %}
+<script>
+
+    $("#orcidid").on('change', function () {
+        $.request('subscriptionForm::onOrcidValidate', {
+            data: { orcid_id: this.value },
+            error: function (data) {
+                var error = data.responseJSON;
+                $("#orcididError").text(error.message.replace('<orcid_id>', error.orcid_id));
+                $("#orcidid").val("");
+            },
+            success: function () {
+                $("#orcididError").text("");
+            }
+        });
+    });
+
+    $("#email").on('change', function () {
+        $.request('subscriptionForm::onEmailValidate', {
+            data: { email: this.value },
+            error: function (data) {
+                var error = data.responseJSON;
+                $("#emailError").text(error.message.replace('<orcid_id>', error.orcid_id));
+                $("#email").val("");
+            },
+            success: function () {
+                $("#emailError").text("");
+            }
+        });
+    });
+</script>
+{% endput %}

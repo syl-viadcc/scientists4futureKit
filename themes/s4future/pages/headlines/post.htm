@@ -1,0 +1,33 @@
+title = "Headline Post"
+url = "/headlines/post/:slug"
+layout = "form"
+is_hidden = 0
+
+[viewBag]
+
+[newsCategories]
+noPostsMessage = "Não existem outras categorias!"
+categoryPage = "headlines/category"
+
+[newsPost]
+slug = "{{ :slug }}"
+==
+<div class="headline-post">
+    <div class="row">
+        <img src="{{ post.image|media }}" class="img-fluid" alt="{{ post.title }}">
+    </div>
+    <div class="align-justify">
+        {{ post.introductory|raw }}
+        <br>
+        {{ post.content|raw }}
+    </div>
+
+    <div class="post-meta small align-right">
+        <i class="fa fa-clock-o pr-1"></i>&nbsp;{{ post.published_at|date("Y-m-d") }} &nbsp;
+    </div>
+    <hr>
+</div>
+
+{% partial 'headlines/categories-badges'%}
+
+{% partial 'headlines/navigation'%}

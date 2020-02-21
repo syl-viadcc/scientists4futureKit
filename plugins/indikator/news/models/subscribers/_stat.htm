@@ -1,0 +1,17 @@
+<a
+    data-control="popup"
+    data-size="small"
+    data-handler="onShowStat"
+    data-request-data="id:'<?= $record->id ?>'"
+    href="javascript:;">
+    <?= e(trans('indikator.news::lang.stat.basic')) ?>
+</a>
+ &nbsp;
+<a
+    data-control="popup"
+    data-size="giant"
+    data-handler="onShowEmails"
+    data-request-data="id:'<?= $record->id ?>'"
+    href="javascript:;">
+    <?= e(trans('indikator.news::lang.stat.emails')) ?>
+</a>

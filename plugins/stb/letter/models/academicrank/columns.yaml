@@ -1,0 +1,5 @@
+columns:
+    name:
+        label: 'stb.letter::lang.plugin.form.academic_rank'
+        type: text
+        sortable: true

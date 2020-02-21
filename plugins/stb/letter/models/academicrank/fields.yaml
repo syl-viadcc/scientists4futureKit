@@ -1,0 +1,6 @@
+fields:
+    name:
+        label: 'stb.letter::lang.plugin.form.academic_rank'
+        span: auto
+        required: 1
+        type: text

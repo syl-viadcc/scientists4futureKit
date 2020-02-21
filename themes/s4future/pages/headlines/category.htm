@@ -1,0 +1,45 @@
+title = "S4F Headlines"
+url = "/headlines/category/:slug"
+layout = "form"
+description = "Listagem das notícias em categoriea"
+meta_title = "Acompanhe as notícias, os eventos e toda a actualidade do SPE."
+is_hidden = 0
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 4
+noPostsMessage = "Não existem headlines nesta categoria"
+sortOrder = "published_at desc"
+postFeatured = 0
+categoryFilter = "{{ :slug }}"
+postPage = "headlines/post"
+categoryPage = "headlines/category"
+
+[newsCategories]
+noPostsMessage = "Ainda não existem headlines nesta categoria."
+categoryPage = "headlines/category"
+==
+
+<div class="heading mb-4">
+    <h2>Categoria: <span>{{category.name}}</span></h2>
+</div>
+{% partial 'headlines/listing'%}
+
+<div class="features-bottom">
+    <hr>
+    <div class="row">
+        <div class="12u align-left">
+            {% partial 'headlines/categories-badges'%}
+        </div>
+        <div class="12u align-right">
+            {{ posts.render|raw }}
+        </div>
+    </div>
+</div>
+{% partial 'headlines/navigation'%}
+
+{% put scripts %}
+<script type="text/javascript">
+    $("ul.pagination").addClass("mt-1");
+</script>
+{% endput %}

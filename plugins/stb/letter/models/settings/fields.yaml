@@ -1,0 +1,50 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    form.section:
+        label: stb.letter::lang.settings.section_form_label
+        type: section
+        comment: stb.letter::lang.settings.section_form_comments
+    form_enabled:
+        label: stb.letter::lang.settings.form_enabled_label
+        commentAbove: stb.letter::lang.settings.form_enabled_comment
+        type: switch
+
+    recaptcha_settings.section:
+        label: stb.letter::lang.settings.section_recaptcha_label
+        type: section
+        comment: stb.letter::lang.settings.section_recaptcha_comments
+
+    recaptcha_enabled:
+        label: stb.letter::lang.settings.recaptcha_label
+        commentAbove: stb.letter::lang.settings.recaptcha_comment
+        type: switch
+
+    site_key:
+        label: stb.letter::lang.settings.site_key_label
+        commentAbove: stb.letter::lang.settings.site_key_comment
+        span: left
+        type: text
+    secret_key:
+        label: stb.letter::lang.settings.secret_key_label
+        commentAbove: stb.letter::lang.settings.secret_key_comment
+        span: left
+        type: text
+
+    email_verification_settings.section:
+        label: stb.letter::lang.settings.section_email_verification_label
+        type: section
+        comment: stb.letter::lang.settings.section_email_verification_comments
+
+    email_verification_enabled:
+        label: stb.letter::lang.settings.email_verification_label
+        commentAbove: stb.letter::lang.settings.email_verification_comment
+        type: switch
+    email_verification_from:
+        label: stb.letter::lang.settings.email_verification_from
+        commentAbove: stb.letter::lang.settings.email_verification_comment
+        span: left
+        type: text
+

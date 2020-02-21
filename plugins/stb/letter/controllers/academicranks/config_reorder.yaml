@@ -1,0 +1,4 @@
+title: AcademicRanks
+modelClass: Stb\Letter\Models\AcademicRank
+toolbar:
+    buttons: reorder_toolbar

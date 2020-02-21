@@ -1,0 +1,20 @@
+plugin:
+    name: 'stb.letter::lang.plugin.name'
+    description: 'stb.letter::lang.plugin.description'
+    author: STB
+    icon: oc-icon-file-text
+    homepage: ''
+navigation:
+    main-menu-letter:
+        label: 'stb.letter::lang.plugin.name'
+        url: stb/letter/subsriptions
+        icon: icon-file-text-o
+        sideMenu:
+            side-menu-subscriptions:
+                label: 'stb.letter::lang.plugin.subscriptions'
+                url: stb/letter/subsriptions
+                icon: icon-file-text
+            side-menu-ranks:
+                label: 'stb.letter::lang.plugin.form.rank'
+                url: stb/letter/academicranks
+                icon: icon-group

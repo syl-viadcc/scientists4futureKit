@@ -1,0 +1,22 @@
+==
+<!-- Header -->
+
+<section id="header">
+    <header>
+        <span class="image avatar"><img src="{{'assets/images/sf4_logo_b.png'|theme }}" alt=""></span>
+        <h1 id="logo"><a href="/" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Scientists <span style="color: var(--steel-blue)">for</span> Future Portugal</a></h1>
+        <!--<p>I got reprogrammed by a rogue AI<br>-->
+        <!--and now I'm totally cray</p>-->
+    </header>
+    {% if menu1.menuItems %}
+    {% set items = staticMenu.menuItems %}
+    <nav id="nav">
+        <ul>
+            {% for item in items %}
+            <li><a href="{{ item.url }}"  class="{{  this.page.url == item.url ? 'active' : '' }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</section>

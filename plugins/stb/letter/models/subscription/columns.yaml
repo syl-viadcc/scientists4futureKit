@@ -1,0 +1,35 @@
+columns:
+    name:
+        label: 'stb.letter::lang.plugin.form.name'
+        type: text
+        searchable: true
+        sortable: true
+    id:
+        label: 'DB ID'
+        type: text
+        sortable: true
+    orcid_id:
+        label: 'stb.letter::lang.plugin.form.orcid_id'
+        type: text
+        searchable: true
+    email:
+        label: 'stb.letter::lang.plugin.form.email'
+        type: text
+        searchable: true
+    institution:
+        label: 'stb.letter::lang.plugin.form.institution'
+        type: text
+        searchable: true
+    is_verified:
+        label: 'Verificado?'
+    radio_vip:
+        label: 'VIP?'
+        type: text
+    created_at:
+        label: 'Data de assinatura'
+        type: text
+    vip:
+        type: partial
+        text: 'Mark as VIP'
+        sortable: false
+        path: ~/plugins/stb/letter/controllers/subsriptions/_mark_checkbox.htm

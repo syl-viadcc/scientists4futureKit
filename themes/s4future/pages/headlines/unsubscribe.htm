@@ -1,0 +1,17 @@
+title = "Cancelar subscrição"
+url = "/headlines/unsubscribe"
+layout = "form"
+is_hidden = 0
+
+[newsUnsubscribe]
+==
+{% content 'mailinglist_unsubscribe' %}
+<form data-request="onUnsubscribe" data-request-success="alert('{{ text_messages }}')">
+
+    <div class="form-group">
+        <label for="subscribersEmail">{{text_email|_}}&nbsp;</label>
+        <input name="email" type="email" class="form-control" id="subscribersEmail" required>
+    </div>
+
+    <button type="submit" class="button">{{ 'Cancelar Subscrição'|_ }}</button>
+</form>

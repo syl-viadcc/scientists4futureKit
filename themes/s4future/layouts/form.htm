@@ -1,0 +1,54 @@
+description = "Form layout"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[staticMenu menu1]
+code = "main-menu"
+
+[localePicker]
+forceUrl = 0
+
+[viewBag]
+==
+<!DOCTYPE HTML>
+<html lang="{{ activeLocale }}">
+    {% partial 'site/head' %}
+<body>
+{% partial 'site/header' %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <!-- One -->
+        <section id="one">
+            <div class="container">
+                <header class="major">
+                    <h1>Scientists <span style="color: var(--steel-blue)">for</span> Future Portugal</h1>
+                </header>
+                <h3>{{this.page.title|_}}</h3>
+
+                {%if this.page.url == '/carta'%}
+                <div class="align-justify">
+                    {% page %}
+                </div>
+                <a href="{{'form'|app}}" class="button">
+                    <span class="fit">{{'Assinar a Carta'|_}} </span>
+                </a>
+                {% else %}
+                <div id="main-content">
+                    {% page %}
+                </div>
+                {% endif %}
+
+            </div>
+
+        </section>
+    </div>
+    {% partial 'site/footer' %}
+</div>
+{% partial 'site/scripts' %}
+</body>
+</html>

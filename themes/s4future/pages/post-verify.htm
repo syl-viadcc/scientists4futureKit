@@ -1,0 +1,36 @@
+title = ""
+url = "/post-verfiy"
+layout = "form"
+is_hidden = 0
+
+[verifyemail]
+==
+<div class="align-justify">
+    {%if name %}
+        <h4>{{'Caro(a)'|_}}&nbsp;{{name}}</h4>
+    {% endif %}
+
+    {%if not view %}
+        {{'Eu acho que está perdido. Volta para pagina inicial'|_}}&nbsp;<a href="{{'/'|app}}" class="button small">{{'Início'|_}}</a>
+    {%endif%}
+
+    {%if message %}
+        <p>{{message}}</p>
+    {% endif %}
+
+    {%if view == 'fail'%}
+        <a class="button small" href="{{'assinantes'|_}}">{{'Lista dos assinates'|_}}</a>
+    {%endif%}
+
+    {%if view == 'success'%}
+        {% content 'verify_success'%}
+        <a class="button small" href="{{'assinantes'|_}}">{{'Lista dos assinates'|_}}</a>
+    {%endif%}
+
+    {%if view == 'expired'%}
+        <div id="response"></div>
+        {% content 'verify_expired'%}
+        <a class="button small" data-request="verifyemail::onResendVerifyEmail" data-request-update="'verifyemail::status': '#response'"
+           data-request-data="email: '{{email}}'">{{'Reenvia o link da validação!'|_}}</a>
+    {%endif%}
+</div>

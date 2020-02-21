@@ -1,0 +1,10 @@
+name: AcademicRanks
+form: $/stb/letter/models/academicrank/fields.yaml
+modelClass: Stb\Letter\Models\AcademicRank
+defaultRedirect: stb/letter/academicranks
+create:
+    redirect: 'stb/letter/academicranks/update/:id'
+    redirectClose: stb/letter/academicranks
+update:
+    redirect: stb/letter/academicranks
+    redirectClose: stb/letter/academicranks

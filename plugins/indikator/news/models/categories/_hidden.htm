@@ -1,0 +1,13 @@
+<?php
+
+$text = [
+    1 => 'yes',
+    2 => 'no'
+];
+
+$class = [
+    1 => 'text-danger',
+    2 => 'text-info'
+];
+
+echo '<span class="oc-icon-circle '.$class[$record->hidden].'">'.Lang::get('indikator.news::lang.form.'.$text[$record->hidden]).'</span>';

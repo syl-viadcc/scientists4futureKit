@@ -1,0 +1,8 @@
+name: Subscriptions
+form: $/stb/letter/models/subscription/fields.yaml
+modelClass: Stb\Letter\Models\subscription
+defaultRedirect: stb/letter/subscriptions
+
+update:
+    redirect: stb/letter/academicranks
+    redirectClose: stb/letter/academicranks

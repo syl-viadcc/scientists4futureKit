@@ -1,0 +1,58 @@
+<style>
+    .assinantes ul{
+        list-style: none;
+    }
+    .assinantes ul li{
+        display: inline;
+
+    }
+    .assinantes ul li.active{
+        color: var(--steel-blue);
+    }
+    hr.small-margin {
+        margin: 0.5em 0;
+    }
+
+
+    #list-assinantes table td {
+        padding: 0em 0em;
+        border: none;
+    }
+
+    #list-assinantes table tbody tr {
+        border: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+
+</style>
+{%if __SELF__.assinantesList.total > 0 %}
+{% set fromPage =  (__SELF__.assinantesList.currentPage == 1)? __SELF__.assinantesList.currentPage : (__SELF__.assinantesList.currentPage *   __SELF__.assinantesList.perPage - __SELF__.assinantesList.perPage )+1  %}
+{% set toPage = (__SELF__.assinantesList.count < __SELF__.assinantesList.perPage)?  ((__SELF__.assinantesList.currentPage *   __SELF__.assinantesList.perPage - __SELF__.assinantesList.perPage ) + __SELF__.assinantesList.count)+3 :  __SELF__.assinantesList.currentPage *   __SELF__.assinantesList.perPage + 3 %}
+
+
+{% set startEntry = (__SELF__.assinantesList.currentPage == 1)? 1 :  (__SELF__.assinantesList.currentPage *   __SELF__.assinantesList.perPage - __SELF__.assinantesList.perPage ) +1 %}
+<div class="6u"><h4>{{'Total'|_}}: {{ assinantes.assinantesList.total+3 }}</h4></div>
+<hr class="small-margin">
+<div id="list-assinantes">
+
+    <ul>
+        {% if __SELF__.assinantes123 and  __SELF__.assinantesList.currentPage == 1%}
+            {% for person in __SELF__.assinantes123 %}
+                {% set degree = (person.highest_degree == 'mestrado')?  "(MSc)" : (person.highest_degree == 'licenciatura')? "(Licenciado(a))" : (person.highest_degree == 'doutoramento')?"(PhD)" : "" %}
+                <li>{{ person.name }} {{ degree }}, <br>{{__SELF__.settings.ranks[person.rank_id] }}, {{ person.institution }}</li>
+                {% endfor %}
+        {% endif%}
+
+        {% for person in __SELF__.assinantesList %}
+            {% set degree = (person.highest_degree == 'mestrado')?  "(MSc)" : (person.highest_degree == 'licenciatura')? "(Licenciado(a))" : (person.highest_degree == 'doutoramento')?"(PhD)" : "" %}
+            <li>{{ person.name }} {{ degree }}, <br>{{__SELF__.settings.ranks[person.rank_id] }}, {{ person.institution }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<hr class="small-margin">
+<div class="row assinantes">
+
+    <div class="9u align-left">{{ __SELF__.assinantesList.render|raw }}</div>
+</div>
+{% endif %}

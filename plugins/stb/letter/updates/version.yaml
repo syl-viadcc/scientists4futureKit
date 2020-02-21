@@ -1,0 +1,29 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table stb_letter_subscriptions'
+    - builder_table_create_stb_letter_subscriptions.php
+1.0.3:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions.php
+1.0.4:
+    - 'Created table stb_letter_academic_ranks'
+    - builder_table_create_stb_letter_academic_ranks.php
+1.0.5:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_2.php
+1.0.6:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_3.php
+1.0.7:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_4.php
+1.0.8:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_5.php
+1.0.9:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_6.php
+1.0.10:
+    - 'Updated table stb_letter_subscriptions'
+    - builder_table_update_stb_letter_subscriptions_7.php

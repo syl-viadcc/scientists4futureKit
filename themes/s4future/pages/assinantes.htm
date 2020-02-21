@@ -1,0 +1,22 @@
+title = "Lista dos Assinantes"
+url = "/assinantes"
+layout = "form"
+is_hidden = 0
+
+[assinantes]
+==
+<div class="align-justify">
+
+
+    {% content 'form_disclaimer'%}
+</div>
+{% component 'assinantes' %}
+<div class="row">
+    <p style="font-size: 0.8em; line-height: 1.2em; ">Se assinou a carta e validou a assinatura através do e-mail por nós enviado mas a sua assinatura não aparece na lista, por favor contacte scientists4future.pt@gmail.com</p>
+    <div class="-10u align-right">
+            <span><a href="{{'form'|app}}" class="button small" style="background-color: var(--dark-steel-blue); color: var(--light-steel-blue);">
+                <span class="fit">{{'Assinar a Carta'|_}} </span>
+            </a></span>
+    </div>
+</div>
+

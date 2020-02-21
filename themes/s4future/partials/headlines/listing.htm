@@ -1,0 +1,23 @@
+description = "Listing of headlines"
+
+[viewBag]
+
+==
+<div class="features">
+    {% for post in posts %}
+    <article>
+        <a target="_blank" href="{{ post.url }}" class="image" ><img src="{{ post.image|media }}" alt=""></a>
+        <div class="inner">
+            <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+            <div class="text-justify">{{ post.introductory|raw }}</div>
+            <!-- Post Meta -->
+            <div class="post-meta small ">
+                <i class="fa fa-clock-o pr-1"></i>&nbsp;{{ post.published_at|date("Y-m-d") }} &nbsp;
+            </div>
+        </div>
+    </article>
+    {% else %}
+    <li class="no-data">{{ noPostsMessage }}</li>
+    {% endfor %}
+</div>
+

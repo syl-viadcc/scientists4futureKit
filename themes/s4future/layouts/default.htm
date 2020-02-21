@@ -1,0 +1,77 @@
+description = "Default layout"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[localePicker]
+forceUrl = 0
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "Ainda não existem notícias do S4F."
+sortOrder = "published_at desc"
+postFeatured = 0
+postPage = "headlines/post"
+categoryPage = "headlines/category"
+
+[staticMenu]
+code = "main-menu"
+
+[viewBag]
+==
+<!DOCTYPE HTML>
+<html lang="{{ activeLocale }}">
+    {% partial 'site/head' %}
+
+<body>
+{% partial 'site/header' %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <!-- One -->
+        <section id="one">
+            <div class="container">
+                <header class="major">
+                    <h1>Scientists <span style="color: var(--steel-blue)">for</span> Future Portugal</h1>
+                    {% content 'carta_intro'%}
+                </header>
+                <a href="{{'carta'|app}}" class="button">
+                    <span class="fit">{{'Ler Carta'|_}} </span>
+                </a>
+                {% page %}
+            </div>
+        </section>
+
+        <section id="headlines" class="">
+            <div class="container">
+                <h3>{{'Saber mais'|_}}</h3>
+                {% partial 'headlines/listing'%}
+
+            </div>
+        </section>
+
+        <!-- Three -->
+        <section id="ligacoes">
+            <div class="container">
+                <h3>{{'Ligações'|_}}</h3>
+                {% content 'ligacoes'%}
+            </div>
+        </section>
+
+        <!-- contact -->
+        <section id="contact">
+            <div class="container align-justify">
+                <h3>{{'Quem somos'|_}}</h3>
+                {% content 'quem_somos'%}
+            </div>
+        </section>
+    </div>
+    {% partial 'site/footer' %}
+</div>
+{% partial 'site/scripts' %}
+</body>
+</html>

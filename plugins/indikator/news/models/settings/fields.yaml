@@ -1,0 +1,111 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    main_section:
+        label: indikator.news::lang.backend_settings.main_section
+        type: section
+
+    click_tracking:
+        label: indikator.news::lang.backend_settings.click_tracking
+        comment: indikator.news::lang.backend_settings.click_tracking_comment
+        type: switch
+        default: true
+        span: auto
+
+    email_view_tracking:
+        label: indikator.news::lang.backend_settings.email_view_tracking
+        comment: indikator.news::lang.backend_settings.email_view_tracking_comment
+        type: switch
+        default: false
+        span: auto
+
+    email_view_tracking_warning:
+        type: partial
+        path: $/indikator/news/models/settings/_email_view_tracking_warning.htm
+        span: right
+
+    newsletter_double_opt_in:
+        label: indikator.news::lang.backend_settings.newsletter_double_opt_in
+        comment: indikator.news::lang.backend_settings.newsletter_double_opt_in_comment
+        type: switch
+        default: true
+        span: left
+
+    admin_section:
+        label: indikator.news::lang.backend_settings.admin_section
+        type: section
+
+    show_posts:
+        label: indikator.news::lang.backend_settings.show_posts
+        type: checkboxlist
+        options:
+            1: indikator.news::lang.form.status_published
+            2: indikator.news::lang.form.status_hide
+            3: indikator.news::lang.form.status_draft
+        default: [1, 3]
+        span: right
+
+    statistic_show_posts:
+        label: indikator.news::lang.backend_settings.statistic_show_posts
+        comment: indikator.news::lang.backend_settings.statistic_comment
+        type: switch
+        default: true
+        span: left
+
+    statistic_show_mails:
+        label: indikator.news::lang.backend_settings.statistic_show_mails
+        comment: indikator.news::lang.backend_settings.statistic_comment
+        type: switch
+        default: true
+        span: left
+
+    statistic_show_longest_posts:
+        label: indikator.news::lang.backend_settings.statistic_show_longest_posts
+        comment: indikator.news::lang.backend_settings.statistic_comment
+        type: switch
+        default: true
+        span: left
+
+    statistic_show_shortest_posts:
+        label: indikator.news::lang.backend_settings.statistic_show_shortest_posts
+        comment: indikator.news::lang.backend_settings.statistic_comment
+        type: switch
+        default: true
+        span: left
+
+    fields_section:
+        label: indikator.news::lang.backend_settings.extra_fields
+        type: section
+
+    fields_slug:
+        label: indikator.news::lang.form.slug
+        type: switch
+        default: true
+        span: auto
+
+    fields_category:
+        label: indikator.news::lang.form.category
+        type: switch
+        default: true
+        span: auto
+
+    fields_tags:
+        label: indikator.news::lang.form.tags
+        type: switch
+        default: true
+        span: auto
+
+    fields_author:
+        label: indikator.news::lang.form.author
+        type: switch
+        default: false
+        span: auto
+
+    fields_seo:
+        label: indikator.news::lang.form.seo_tab
+        type: switch
+        default: false
+        span: auto

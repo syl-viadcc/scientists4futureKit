@@ -1,0 +1,18 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    radio_vip:
+        label: 'Show VIPs'
+        type: checkbox
+        default: 0
+        conditions: radio_vip <> false
+
+    verified:
+        label: 'All / Verified / NotVerified'
+        type: switch
+        default: 2
+        conditions:
+            - is_verified <> true
+            - is_verified = true

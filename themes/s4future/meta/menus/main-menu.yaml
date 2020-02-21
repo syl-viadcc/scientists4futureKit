@@ -1,0 +1,106 @@
+name: 'Main Menu'
+items:
+    -
+        title: Início
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: inicio
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Carta
+        nesting: ''
+        type: url
+        url: /carta
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Assinar Carta'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: form
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Lista dos Assinantes'
+        nesting: ''
+        type: url
+        url: /assinantes
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Saber Mais'
+        nesting: ''
+        type: url
+        url: '/#headlines'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Ligações
+        nesting: ''
+        type: url
+        url: '/#ligacoes'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Quem somos'
+        nesting: ''
+        type: url
+        url: '/#contact'
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Materiais
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: materiais
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

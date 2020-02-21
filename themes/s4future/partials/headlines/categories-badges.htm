@@ -1,0 +1,19 @@
+description = "Listing of headlines categories as badges"
+
+[viewBag]
+==
+<!--    print all categories-->
+<div class="headline-categories align-left">
+    {% for categoryBagdge in categories %}
+    {% if loop.first %}
+    <ul>
+        <li><a class="button small {%if this.page.url == '/headlines'  %} active {%endif%}" href="{{'headlines'|app}}">{{'Todas as notícias'|_}}</a></li>
+        {% endif %}
+        <li><a class="button small {%if categoryBagdge.slug == post.category.slug or category.slug == categoryBagdge.slug %} active {%endif%}" href="{{'headlines/category'|app}}/{{ categoryBagdge.slug }}">{{ categoryBagdge.name }}</a></li>
+        {% if loop.last %}
+    </ul>
+    {% endif %}
+    {% else %}
+    <span class="post-nodata">{{ noPostsMessage }}</span>
+    {% endfor %}
+</div>
