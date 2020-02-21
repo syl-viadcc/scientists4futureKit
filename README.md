@@ -20,12 +20,12 @@ GD PHP Library
 ### How to install 
 
 
-1. Get the code from git https://github.com/syl-viadcc/scientists4futureKit.git
-2. Configure Databaste
+1. Go to your {installation folder}
+2. Clone the code from git `git clone https://github.com/syl-viadcc/scientists4futureKit.git .``
+3. Configure Databaste
     Create empty databse s4future. 
     Edit config/database.php to fit your settings
    
-3. Go to your {installation folder}
 4. Run: composer update
     If everything is OK, this process completes with message: 'Ping? Pong!'
     
